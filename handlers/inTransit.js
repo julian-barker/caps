@@ -3,9 +3,8 @@ const eventLogger = require('./eventLog');
 
 module.exports = (payload) => {
   eventLogger('IN_TRANSIT', payload);
+  console.log('Driver: Package picked up and in transit');
   console.log('Vendor: Acknowledged - package in transit');
-  setTimeout(() => {
-    console.log('Driver: Package delivered');
-    eventPool.emit('DELIVERED', payload);
-  }, 2000);
+
+  eventPool.emit('DELIVERED', payload);
 };

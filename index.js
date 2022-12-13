@@ -5,13 +5,11 @@ const Chance = require('chance');
 
 const chance = new Chance();
 
-const handlePickup = require('./handlers/pickup');
-const handleInTransit = require('./handlers/inTransit');
-const handleDelivery = require('./handlers/delivered');
+const { timeoutHandlePickup, timeoutHandleInTransit, timeoutHandleDelivery } = require('./handlers/');
 
-eventPool.on('PICK_ME_UP', handlePickup);
-eventPool.on('IN_TRANSIT', handleInTransit);
-eventPool.on('DELIVERED', handleDelivery);
+eventPool.on('PICK_ME_UP', timeoutHandlePickup);
+eventPool.on('IN_TRANSIT', timeoutHandleInTransit);
+eventPool.on('DELIVERED', timeoutHandleDelivery);
 
 let count = 0;
 let intervalId = setInterval(() => {
