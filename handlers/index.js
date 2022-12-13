@@ -2,23 +2,24 @@ const handlePickup = require('./pickup');
 const handleInTransit = require('./inTransit');
 const handleDelivery = require('./delivered');
 
+const delay = 2000;
 
 const timeoutHandlePickup = (payload) => {
   setTimeout(() => {
     handlePickup(payload);
-  }, 1000);
+  }, delay);
 };
 
 const timeoutHandleInTransit = (payload) => {
   setTimeout(() => {
     handleInTransit(payload);
-  }, 1000);
+  }, delay);
 };
 
 const timeoutHandleDelivery = (payload) => {
   setTimeout(() => {
     handleDelivery(payload);
-  }, 1000);
+  }, delay);
 };
 
 module.exports = { 
