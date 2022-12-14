@@ -21,14 +21,13 @@ Build an application for a product called CAPS - The Code Academy Parcel Service
 
 ### Links and Resources
 
-- [deployment](https://four01-caps.onrender.com)
+- No deployment yet.
 
 ### Setup
 
 #### `.env` requirements (where applicable)
 
 - `PORT` - 3001
-- `DATABASE_URL` - postgres://localhost:5432/\<database-name\>?sslmode=disable
 
 #### How to initialize/run your application (where applicable)
 
@@ -46,6 +45,7 @@ Build an application for a product called CAPS - The Code Academy Parcel Service
 
 #### UML
 
+![UML](./assets/lab-11-UML.png)
 ![UML](./assets/lab-11-UML.png)
 
 ### Attributions
