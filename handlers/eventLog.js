@@ -5,5 +5,5 @@ module.exports = (event, payload) => {
     payload,
   };
 
-  console.log('Event: ', eventObj);
+  console.log('\nEvent: ', eventObj, '\n');
 };

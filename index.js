@@ -1,30 +1,21 @@
 'use strict';
 
-const eventPool = require('./eventPool');
-const Chance = require('chance');
+const { Server } = require('socket.io');
+const logger = require('./handlers/eventLog') ;
 
-const chance = new Chance();
+const io = new Server();
 
-const { timeoutHandlePickup, timeoutHandleInTransit, timeoutHandleDelivery } = require('./handlers/');
+const shipping = io.of('/shipping');
 
-eventPool.on('PICK_ME_UP', timeoutHandlePickup);
-eventPool.on('IN_TRANSIT', timeoutHandleInTransit);
-eventPool.on('DELIVERED', timeoutHandleDelivery);
+shipping.on('connection', (socket) => {
+  console.log('Socket connected to shipping namespace!', socket.id);
 
-let count = 0;
-let intervalId = setInterval(() => {
-  console.log('\n\nSTARTING SHIPPING PROCESS\n');
+  socket.onAny((eventName, payload) => {
+    logger(eventName, payload);
+    socket.broadcast.emit(eventName, payload);
+  });
+});
 
-  const payload = {
-    store: 'Julian.com',
-    orderId: chance.guid(),
-    customer: chance.name(),
-    address: chance.address(),
-  };
+io.listen(3002);
 
-  eventPool.emit('PICK_ME_UP', payload);
-  count++;
-  if(count >= 3) {
-    clearInterval(intervalId);
-  }
-}, 10000);
+
