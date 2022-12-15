@@ -36,16 +36,18 @@ Build an application for a product called CAPS - The Code Academy Parcel Service
 
 #### Features / Routes
 
-- Cycles 3 times through a series of sequential events from pickup to delivery and logs each event.
+- Allows drivers and vendors to respond to each other's events
+- Allows drivers and vendors to catch up on missed messages while they were disconnected
 
 #### Tests
 
-- test suite was provided as starter code
 - run tests with `npm test`
+- tests are not comprehensive/exhaustive
 
 #### UML
 
-![UML](./assets/lab-11-UML.png)
-![UML](./assets/lab-11-UML.png)
+![UML-11](./assets/lab-11-UML.png)
+![UML-12](./assets/lab-12-UML.png)
+![UML-13](./assets/lab-13-UML.png)
 
 ### Attributions
