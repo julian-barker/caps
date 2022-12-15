@@ -1,3 +1,3 @@
 module.exports = (payload) => {
-  console.log(`Receipt confirmed: message from ${payload.sender} at ${payload.time}`);
+  console.log(`\nReceipt confirmed: message from ${payload.sender} at ${payload.time}`);
 };
